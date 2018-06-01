@@ -20,11 +20,13 @@
 <script>
   document.getElementById('pink').addEventListener('click', function(e) {
     console.log(e.srcElement.alt);
+    e.stopPropagation();
   }, false);
 
   document.getElementById('grid').addEventListener('click', function(e) {
     console.log('clicked inside the ul');
   }, false);
+
 </script>
 </body>
 </html>
