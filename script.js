@@ -1,13 +1,14 @@
-document.querySelector('.grid').addEventListener('click', function(e) {
+document.querySelector('.grid').addEventListener('mouseover', function(e) {
   if (e.target.tagName === 'IMG') {
-    var howmany = this.querySelectorAll('li').length;
-    if (howmany > 1) {
-      var removeTarget = e.target.parentNode;
-      removeTarget.parentNode.removeChild(removeTarget);
-    } else {
-      var photoTitle = e.target.alt;
-      document.querySelector('#art p').innerHTML = "<p>You've picked: " + photoTitle + "</p>";
-    } //howmany
+
+    var myElement = document.createElement('div');
+    myElement.className = 'preview';
+    e.target.parentNode.appendChild(myElement);
+
+    var myImg = document.createElement('img');
+    var imgLoc = e.target.src;
+    myImg.src = imgLoc.substr(0, imgLoc.length-7) + '.jpg';
+    myElement.appendChild(myImg);
+
   } // check to see that I clicked on IMG only
 }, false); // click event
-t
